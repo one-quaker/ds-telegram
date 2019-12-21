@@ -25,7 +25,6 @@ logger = logging.getLogger(__name__)
 
 CONF = dict()
 BOT_CONF_FP = 'conf_bot.json'
-TOKEN_DICT = dict(token='YOUR_TELEGRAM_TOKEN_HERE')
 
 
 if os.path.isfile(BOT_CONF_FP):
@@ -34,7 +33,9 @@ if os.path.isfile(BOT_CONF_FP):
         CONF.update(json.load(f))
 else:
     print(f'Creating new bot config "{BOT_CONF_FP}"')
-    write_json_conf(TOKEN_DICT, BOT_CONF_FP)
+    write_json_conf(
+        dict(token='YOUR_TELEGRAM_TOKEN_HERE'),
+        BOT_CONF_FP)
     sys.exit()
 
 
